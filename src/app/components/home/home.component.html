@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-12 text-center text-muted animated fadeIn fast">
+    <h1>Cartelera Cine</h1>
+    <hr>
+  </div>
+</div>
+
+
+  <div class="row" *ngIf="cartelera">
+    <div class="col-md-6 container-img animated fadeIn">
+      <div class="img-big">
+        <a [routerLink]="['/info',cartelera[0].id]">
+          <img class="img-fluid" [src]='imgGrande + cartelera[0].backdrop_path' alt="">
+
+        </a>
+      </div>
+
+      <div class="img-small">
+        <a [routerLink]="['/info',cartelera[1].id]">
+         <img class="img-fluid" [src]='imgPeq + cartelera[1].backdrop_path' alt="">
+
+        </a>
+      </div>
+
+      <div class="img-small">
+        <a [routerLink]="['/info',cartelera[2].id]">
+          <img class="img-fluid" [src]='imgPeq + cartelera[2].backdrop_path' alt="">
+
+        </a>
+      </div>
+    </div>
+    <div class="col-md-6 container-img">
+      <div class="img-small">
+        <a [routerLink]="['/info',cartelera[3].id]">
+          <img class="img-fluid" [src]='imgPeq + cartelera[3].backdrop_path' alt="">
+
+        </a>
+      </div>
+      <div class="img-small">
+        <a [routerLink]="['/info',cartelera[4].id]">
+          <img class="img-fluid" [src]='imgPeq + cartelera[4].backdrop_path' alt="">
+
+        </a>
+      </div>
+
+      <div class="img-big">
+        <a [routerLink]="['/info',cartelera[5].id]">
+          <img class="img-fluid" [src]='imgGrande + cartelera[5].backdrop_path' alt="">
+        </a>
+      </div>
+    </div>
+
+  </div>
+

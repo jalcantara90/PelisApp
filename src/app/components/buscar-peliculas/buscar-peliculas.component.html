@@ -1,0 +1,31 @@
+
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="form-group">
+      <label for="example-text-input" class="col-2 col-form-label">Buscar:</label>
+      <div class="col-12">
+        <input #buscarPeli class="form-control" (keyup)="buscarPelicula(buscarPeli.value)" type="text" placeholder="buscar...">
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="row">
+
+  <div class="card-columns animated fadeIn main-container" *ngIf="peliculas">
+
+     <div class="card" style="width: 20rem;" *ngFor="let pelicula of peliculas">
+          <img *ngIf="pelicula.backdrop_path === null; else conImagen" class="card-img-top noimagen img-fluid" src="assets/img/noimage.png" alt="Card image cap">
+          <ng-template #conImagen>
+            <img class="card-img-top img-fluid" [src]="img + pelicula.backdrop_path" alt="Card image cap">
+          </ng-template>
+      <div class="card-block">
+        <h4 class="card-title">{{ pelicula.title }}</h4>
+        <p class="card-text">{{ pelicula.overview | cortarDesc }}</p>
+        <a [routerLink]="['/info', pelicula.id]" class="btn btn-primary btn-block">Ver más</a>
+      </div>
+    </div>
+
+  </div>
+</div>
