@@ -6,7 +6,8 @@ import { BuscarPeliculasComponent } from './components/buscar-peliculas/buscar-p
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
-    { path: 'info/:id', component: PeliculaInfoComponent },
+    { path: 'info/:id/:pag', component: PeliculaInfoComponent },
+    { path: 'info/:id/:pag/:busqueda', component: PeliculaInfoComponent },
     { path: 'buscar', component: BuscarPeliculasComponent },
     { path: 'buscar/:texto', component: BuscarPeliculasComponent },
     { path: '**', pathMatch:'full', redirectTo: 'home' }

@@ -1,54 +1,22 @@
-<div class="row">
-  <div class="col-md-12 text-center text-muted animated fadeIn fast">
-    <h1>Cartelera Cine</h1>
-    <hr>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">PeliculasAPP</h1>
+    <p class="lead">Aplicación peliculas</p>
   </div>
 </div>
 
+<div class="container">
+  <br>
 
-  <div class="row" *ngIf="cartelera">
-    <div class="col-md-6 container-img animated fadeIn">
-      <div class="img-big">
-        <a [routerLink]="['/info',cartelera[0].id]">
-          <img class="img-fluid" [src]='imgGrande + cartelera[0].backdrop_path' alt="">
+  <app-galeria *ngIf="cartelera" [peliculas]="cartelera|slice:0:6" 
+                titulo="Peliculas en cartelera"></app-galeria>
 
-        </a>
-      </div>
+    <app-galeria *ngIf="populares" [peliculas]="populares|slice:0:6" 
+                titulo="Peliculas Populares"></app-galeria>
 
-      <div class="img-small">
-        <a [routerLink]="['/info',cartelera[1].id]">
-         <img class="img-fluid" [src]='imgPeq + cartelera[1].backdrop_path' alt="">
+  <app-galeria *ngIf="popularesNinos" [peliculas]="popularesNinos|slice:0:6" 
+                titulo="Peliculas populares entre los niños"></app-galeria>
 
-        </a>
-      </div>
 
-      <div class="img-small">
-        <a [routerLink]="['/info',cartelera[2].id]">
-          <img class="img-fluid" [src]='imgPeq + cartelera[2].backdrop_path' alt="">
-
-        </a>
-      </div>
-    </div>
-    <div class="col-md-6 container-img">
-      <div class="img-small">
-        <a [routerLink]="['/info',cartelera[3].id]">
-          <img class="img-fluid" [src]='imgPeq + cartelera[3].backdrop_path' alt="">
-
-        </a>
-      </div>
-      <div class="img-small">
-        <a [routerLink]="['/info',cartelera[4].id]">
-          <img class="img-fluid" [src]='imgPeq + cartelera[4].backdrop_path' alt="">
-
-        </a>
-      </div>
-
-      <div class="img-big">
-        <a [routerLink]="['/info',cartelera[5].id]">
-          <img class="img-fluid" [src]='imgGrande + cartelera[5].backdrop_path' alt="">
-        </a>
-      </div>
-    </div>
-
-  </div>
+</div>
 

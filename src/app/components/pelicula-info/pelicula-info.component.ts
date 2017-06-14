@@ -12,8 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PeliculaInfoComponent implements OnInit {
 
   detallePelicula:any;
-
-  img:string = "http://image.tmdb.org/t/p/w600/";
+  regresarA:string = "";
+  busqueda:string = "";
 
   constructor(
     private activatedRoute:ActivatedRoute,
@@ -24,10 +24,13 @@ export class PeliculaInfoComponent implements OnInit {
   ngOnInit() {
 
     this.activatedRoute.params
-        .map(parametros => parametros['id'])
-        .subscribe( id => {
-          
-          this._ps.getDetallePelicula(id) 
+        .subscribe( parametros => {
+          this.regresarA = parametros['pag'];
+
+          if( parametros['busqueda'] ) {
+            this.busqueda = parametros['busqueda'];
+          }
+          this._ps.getDetallePelicula(parametros['id']) 
               .subscribe(data => this.detallePelicula = data)
 
         })

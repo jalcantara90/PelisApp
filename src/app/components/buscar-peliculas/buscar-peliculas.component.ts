@@ -11,9 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BuscarPeliculasComponent implements OnInit {
 
-  img:string = "http://image.tmdb.org/t/p/w600/";
-
   peliculas:any[];
+  buscar:string="";
 
   constructor(
     private activatedRoute:ActivatedRoute,
@@ -24,21 +23,30 @@ export class BuscarPeliculasComponent implements OnInit {
   ngOnInit() {
 
     this.activatedRoute.params
-        .map(parametros => parametros['texto'])
-        .subscribe( texto => {
+        .subscribe( parametros => {
+
+          if ( parametros['texto']) {
+            this.buscar =  parametros['texto']
+          }
           
-          this._ps.buscarPelicula(texto) 
+          this._ps.buscarPelicula(parametros['texto']) 
               .subscribe(data => {
                 this.peliculas = data
 
-                console.log(this.peliculas);
               })
 
         })
   }
 
-  buscarPelicula( termino:string  ) {
-    this.router.navigate( ['/buscar',termino]);
+  buscarPelicula() {
+
+    if ( this.buscar.length == 0 ) {
+      return;
+    }
+    this._ps.buscarPelicula(this.buscar).subscribe(
+      
+    );
+    // this.router.navigate( ['/buscar',this.buscar]);
   }
 
 }

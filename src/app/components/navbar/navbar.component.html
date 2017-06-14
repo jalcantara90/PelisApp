@@ -10,13 +10,13 @@
         <a class="nav-link" [routerLink]="['home']">Home</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['buscar']">buscar</a>
+        <a class="nav-link" [routerLink]="['buscar']">Buscar</a>
       </li>
       
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" #navBusquedaPeli (keyup.enter)="buscarPelicula(navBusquedaPeli.value)" type="text" placeholder="Search">
-      <button class="btn btn-outline-info my-2 my-sm-0" (click)="buscarPelicula(navBusquedaPeli.value)" type="submit">Search</button>
+      <button class="btn btn-info my-2 my-sm-0" (click)="buscarPelicula(navBusquedaPeli.value)" type="submit">Search</button>
     </form>
   </div>
 </nav>

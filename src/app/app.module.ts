@@ -20,6 +20,8 @@ import { BuscarPeliculasComponent } from './components/buscar-peliculas/buscar-p
 //pipes
 import { CortarDescPipe } from './pipes/cortar-desc.pipe';
 import { SinfotoPipe } from './pipes/sinfoto.pipe';
+import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
+import { GaleriaComponent } from './components/home/galeria.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { SinfotoPipe } from './pipes/sinfoto.pipe';
     PeliculaInfoComponent,
     BuscarPeliculasComponent,
     CortarDescPipe,
-    SinfotoPipe
+    SinfotoPipe,
+    PeliculaImagenPipe,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,

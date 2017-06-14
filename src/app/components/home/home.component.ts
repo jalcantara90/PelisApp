@@ -12,32 +12,25 @@ export class HomeComponent implements OnInit {
   date:Date = new Date();
 
   cartelera:any;
-
-  imgGrande:string = "http://image.tmdb.org/t/p/w600/";
-  imgPeq:string = "http://image.tmdb.org/t/p/w500/";
+  populares:any;
+  popularesNinos:any;
 
   constructor(
     private _ps:PeliculasService
   )  {
 
-      let initDate = this.date.toLocaleString().substr(0,9);
-
       this._ps.getPopulares()
-          .subscribe( data => console.log(data) );
+          .subscribe( data => this.populares = data );
 
-      this._ps.buscarPelicula('wall-e')
-          .subscribe( data => console.log(data));
+      this._ps.getPopularesNinos()
+          .subscribe( data => this.popularesNinos = data );
+
+      // this._ps.buscarPelicula('wall-e')
+      //     .subscribe( data => console.log(data));
 
 
-      this._ps.getCartelera( initDate, this.getDate())
-          .subscribe( data => {
-
-            this.cartelera = data;
-            console.log(this.cartelera);
-
-            return this.cartelera;
-        });
-      
+      this._ps.getCartelera()
+          .subscribe( data => this.cartelera = data );
       
    }
 
@@ -47,14 +40,14 @@ export class HomeComponent implements OnInit {
 
   
 
-  getDate() {
-    let number:number = this.date.setDate( this.date.getDate() + 30 );
+  // getDate() {
+  //   let number:number = this.date.setDate( this.date.getDate() + 30 );
     
-    let date:Date = new Date(number+30);
+  //   let date:Date = new Date(number+30);
 
-    let finishDate:string = date.toLocaleString().substr(0,9);
+  //   let finishDate:string = date.toLocaleString().substr(0,9);
 
-    return finishDate
-  }
+  //   return finishDate
+  // }
 
 }
